@@ -8,7 +8,44 @@ WORKDIR "/work/out/${QEMU_SRC_BASENAME}"
 RUN "/work/src/${QEMU_SRC_BASENAME}/configure" \
     --prefix="/work/dst/${QEMU_ARTIFACT_BASENAME}" \
     --disable-debug-info \
-    --disable-system \
     --disable-werror \
-    --enable-linux-user \
+    --target-list=aarch64-softmmu \
+    --disable-gnutls \
+    --disable-tools \
+    --disable-containers \
+    --extra-cflags="-Wno-error" \
+    --disable-docs \
+    --disable-libudev  \
+    --disable-xkbcommon \
+    --disable-vnc \
+    --disable-vnc-jpeg \
+    --disable-vnc-sasl \
+    --disable-sdl \
+    --disable-gtk \
+    --disable-curses \
+    --disable-opengl \
+    --disable-spice \
+    --disable-vte \
+    --disable-alsa \
+    --disable-dbus-display \
+    --disable-virglrenderer \
+    --disable-pixman  \
+    --disable-png \
+    --disable-slirp \
+    --disable-libudev \
+    --disable-smartcard \
+    --disable-libusb \
+    --disable-usb-redir \
+    --disable-pa \
+    --disable-sndio \
+    --disable-glusterfs \
+    --disable-curl \
+    --disable-rbd  \
+    --disable-numa \
+    --disable-libssh \
+    --disable-l2tpv3 \
+    --disable-nettle \
+    --disable-libpmem \
+    --disable-rdma \
+    --disable-libiscsi \
     --static

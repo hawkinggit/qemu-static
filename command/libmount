@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+. $(dirname $0)/base
+
+WORKDIR /work/src
+
+RUN wget -O util-linux.tgz https://github.com/util-linux/util-linux/archive/refs/tags/v2.41.tar.gz
+RUN tar xzvf util-linux.tgz
+RUN cd util-linux-2.41/
+RUN ./autogen.sh && ./configure  --enable-static --disable-shared --disable-liblastlog2  --disable-pam-lastlog2
+RUN make -j8
+RUN cp .libs/libmount.a /lib/x86_64-linux-gnu/
